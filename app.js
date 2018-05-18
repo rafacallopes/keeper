@@ -8,6 +8,7 @@ var passport    = require("passport");
 var LocalStrategy = require("passport-local");
 var User        = require("./models/user");
 
+
 //requiring routes
 var   indexRoutes      = require("./routes/index");
 var   keeperRoutes      = require("./routes/keeper");
