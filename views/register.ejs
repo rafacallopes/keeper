@@ -7,9 +7,11 @@
     <body>
             <h1>Sign Up!</h1>
 
-            <form action="/register" method="post">
+            <form action="/register" method="post" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
                 <input type="text" name="username" placeholder="username">
                 <input type="password" name="password" placeholder="password">
+                <input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to the Terms and Conditions and Privacy Policy
+
                 <button>Sign Up</button>
             </form>
     </body>
