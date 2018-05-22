@@ -6,15 +6,21 @@ var mongoose    = require("mongoose");
 var flash       = require("connect-flash");
 var passport    = require("passport");
 var LocalStrategy = require("passport-local");
+methodOverride = require("method-override"),
 var User        = require("./models/user");
 
 //requiring routes
+var   authRoutes      = require("./routes/auth");
 var   indexRoutes      = require("./routes/index");
-var   keeperRoutes      = require("./routes/keeper");
+var   matchRoutes      = require("./routes/match");
+var   walletRoutes      = require("./routes/wallet");
+var   faqRoutes               = require("./routes/faq");
+var   profileRoutes      = require("./routes/profile");
 
 
-mongoose.connect("mongodb://localhost/keeper");
+mongoose.connect("mongodb://localhost/appdatabase");
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(flash());
@@ -39,7 +45,11 @@ app.use(function(req, res, next){
    next();
 });
 
-app.use("/", indexRoutes);
-app.use("/keeper", keeperRoutes);
+app.use("/", authRoutes);
+app.use("/index", indexRoutes);
+app.use("/match", matchRoutes);
+app.use("/wallet", walletRoutes);
+app.use("/faq", faqRoutes);
+app.use("/profile", profileRoutes);
 
 http.createServer(app).listen(3000, () => console.log("Servidor rodando local na porta 3000"));

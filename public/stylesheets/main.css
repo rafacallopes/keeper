@@ -2,3 +2,24 @@ body {
     /*background: #9ca1a8;*/
     padding-top: 60px;
 }
+
+#wallet_button {
+    float: right;
+    margin-right: 100px;
+}
+
+#home_menu {
+   
+        width: 100px;
+        height: 100px;
+
+    
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    
+        margin: auto;
+
+}
