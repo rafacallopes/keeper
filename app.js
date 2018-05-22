@@ -6,7 +6,7 @@ var mongoose    = require("mongoose");
 var flash       = require("connect-flash");
 var passport    = require("passport");
 var LocalStrategy = require("passport-local");
-methodOverride = require("method-override"),
+var methodOverride = require("method-override");
 var User        = require("./models/user");
 
 //requiring routes
