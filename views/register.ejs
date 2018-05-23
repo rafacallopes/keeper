@@ -1,3 +1,4 @@
+<html>
 <head>
         <title>Keeper</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -9,24 +10,23 @@
 
             <form action="/register" method="post" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
                 <div>
-                    <input type="text" name="username" placeholder="username">
+                    <input type="email" name="username" placeholder="email" required>
 
                 </div>
                 <div>
-                    <input type="text" name="email" placeholder="email">
-
-                </div>
-         
-                <div>
-                    <input type="password" name="password" placeholder="password">
+                    <input type="password" name="password" placeholder="password" minlength="5" maxlength="12" required>
 
                 </div>
                 
+               
+         
                 
                 <input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to the Terms and Conditions and Privacy Policy
 
                 <button>Sign Up</button>
             </form>
     </body>
-   
+   </html>
+
+
 
