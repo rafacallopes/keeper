@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<html>
+    <head>
+        <title>Keeper - New Partida</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1 style="text-align: center">New Partida</h1>
+                <div style="width: 30%; margin: 25px auto;">
+                    <form action="/cronicas" method="POST">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="adress" placeholder="adress">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="time" placeholder="00h 00m">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="cellphone" placeholder="(xx)0000-0000" minlength="10" maxlength="11">
+                        </div>
+                         <div class="form-group">
+                            <input class="form-control" type="text" name="description" placeholder="tell the keeper if the partida is society, field or futsal">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-lg btn-danger btn-block">Submit!</button>
+                        </div>
+                    </form>
+                    <a href="/index">Go Back</a>
+                </div>
+            </div>
+        </div>    
+           
+        
+    </body>
+</html>

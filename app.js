@@ -3,16 +3,20 @@ const express = require("express");
 const app = express();
 var bodyParser = require("body-parser");
 var mongoose    = require("mongoose");
+var session = require('express-session');
 var flash       = require("connect-flash");
 var passport    = require("passport");
 var LocalStrategy = require("passport-local");
 var methodOverride = require("method-override");
 var User        = require("./models/user");
+var Partida        = require("./models/partida");
+var     seedDB      = require("./seeds");
+
+
 
 //requiring routes
 var   authRoutes      = require("./routes/auth");
 var   indexRoutes      = require("./routes/index");
-var   matchRoutes      = require("./routes/match");
 var   walletRoutes      = require("./routes/wallet");
 var   faqRoutes               = require("./routes/faq");
 var   profileRoutes      = require("./routes/profile");
@@ -24,6 +28,8 @@ app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(flash());
+seedDB(); //seed the database
+
 
 
 // PASSPORT CONFIGURATION
@@ -47,7 +53,6 @@ app.use(function(req, res, next){
 
 app.use("/", authRoutes);
 app.use("/index", indexRoutes);
-app.use("/match", matchRoutes);
 app.use("/wallet", walletRoutes);
 app.use("/faq", faqRoutes);
 app.use("/profile", profileRoutes);

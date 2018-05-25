@@ -3,6 +3,7 @@ var router  = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
 
+
 //first page of the app
 router.get("/", function(req, res){
     res.render("landing");
@@ -22,7 +23,7 @@ router.post("/register", function(req, res){
             return res.render("register");
         }
         passport.authenticate("local")(req, res, function(){
-           req.flash("success", "Welcome to Keeper " + user.username);
+           req.flash("success", "Active notifications by clicking on the glove!");
            res.redirect("/index"); 
         });
     });
