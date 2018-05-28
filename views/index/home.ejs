@@ -10,7 +10,7 @@
            <br>
            <div id="home_menu"><button>Be a Keeper</button>
            <br>
-           <button><a href="/index/new">New Partida</a></button>
+           <button><a href="/index/new">New Match</a></button>
            <br>
            <button><a href="/Wallet">Wallet</a></button>
            <br>
@@ -20,12 +20,12 @@
            </div>
            
            <div class="row text-center" style="display:flex; flex-wrap: wrap;">
-            <% partidas.forEach(function(partida){ %>
+            <% matches.forEach(function(match){ %>
                 <div class="col-md-3 col-sm-6">
-                    <h4><%= partida.adress %></h4>
-                    <h4><%= partida.time %></h4>
-                    <h4><%= partida.cellhphone %></h4>
-                    <h4><%= partida.description %></h4>
+                    <h4><%= match.adress %></h4>
+                    <h4><%= match.time %></h4>
+                    <h4><%= match.cellhphone %></h4>
+                    <h4><%= match.description %></h4>
               
                 <p>
                    <button>Accept!</button>

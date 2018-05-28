@@ -9,7 +9,7 @@ var passport    = require("passport");
 var LocalStrategy = require("passport-local");
 var methodOverride = require("method-override");
 var User        = require("./models/user");
-var Partida        = require("./models/partida");
+var Match        = require("./models/match");
 var     seedDB      = require("./seeds");
 
 

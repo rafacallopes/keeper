@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var Partida = require("./models/partida");
+var Match = require("./models/match");
 
 
 var data = [
@@ -24,19 +24,19 @@ var data = [
 ]
 
 function seedDB(){
-   //Remove all partidas
-   Partida.remove({}, function(err){
+   //Remove all matches
+   Match.remove({}, function(err){
         if(err){
             console.log(err);
         }
-        console.log("removed partidas!");
-         //add a few partidas
+        console.log("removed matches!");
+         //add a few matches
         data.forEach(function(seed){
-            Partida.create(seed, function(err, campground){
+            Match.create(seed, function(err, campground){
                 if(err){
                     console.log(err)
                 } else {
-                    console.log("added a partida");
+                    console.log("added a match");
                    
                 }
             });

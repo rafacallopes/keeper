@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var partidaSchema = new mongoose.Schema({
+var matchSchema = new mongoose.Schema({
    adress: String,
    time: String,
    cellphone: String,
@@ -15,4 +15,4 @@ var partidaSchema = new mongoose.Schema({
    
 });
 
-module.exports = mongoose.model("Partida", partidaSchema);
+module.exports = mongoose.model("Match", matchSchema);
