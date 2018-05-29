@@ -22,7 +22,7 @@
            <button id="profile"><a href="/profile">Profile</a></button>
            <br>
            <div id="home_menu">
-            <button onclick="notifications()">Be a Keeper</button>
+            <button onclick="notifications()">Be a Keeper - Activate or hide Match info</button>
            <br>
            <button><a href="/index/new">New Match</a></button>
            <br>
@@ -40,7 +40,12 @@
                     <h4><%= match.time %></h4>
                     <h4><%= match.cellhphone %></h4>
                     <h4><%= match.description %></h4>
-              
+                    
+                    <% if(currentUser && match.caller.id.equals(currentUser._id)){ %>
+                        <form id="delete-form" action="/index/<%= match._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                        <% }%>
                 <p>
                    <button>Accept!</button>
                 </p>

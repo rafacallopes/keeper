@@ -34,7 +34,7 @@ router.post("/", isLoggedIn, function(req, res){
         } else {
             //redirect back to index page
             console.log(newlyCreated);
-            res.redirect("/index/home");
+            res.redirect("/index");
         }
     });
 });
@@ -42,26 +42,6 @@ router.post("/", isLoggedIn, function(req, res){
 //NEW - show form to create new match
 router.get("/new", function(req, res){
    res.render("index/new"); 
-});
-
-// EDIT Match ROUTE
-router.get("/:id/edit", function(req, res){
-    Match.findById(req.params.id, function(err, foundMatch){
-        res.render("index/edit", {match: foundMatch});
-    });
-});
-
-// UPDATE MATCH ROUTE
-router.put("/:id", function(req, res){
-    // find and update the correct match
-    Match.findByIdAndUpdate(req.params.id, req.body.match, function(err, updatedMatch){
-       if(err){
-           res.redirect("/index");
-       } else {
-           //redirect somewhere(show page)
-           res.redirect("/index/" + req.params.id);
-       }
-    });
 });
 
 // DESTROY MATCH ROUTE
@@ -75,6 +55,7 @@ router.delete("/:id", function(req, res){
     });
  });
  
+ //MIDDLEWARE - User must be logged in to continue
  function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
