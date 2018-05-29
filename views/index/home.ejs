@@ -14,6 +14,9 @@
         x.style.display = "none";
     }
 }
+
+
+
      </script>
     </head>
     
@@ -33,6 +36,8 @@
            <button><a href="/logout">Logout</a></button>
            </div>
            
+            <!-- SHOW ALL MATCHES -->
+
            <div id="show_matches">
             <% matches.forEach(function(match){ %>
                 <div class="col-md-3 col-sm-6">
@@ -40,15 +45,16 @@
                     <h4><%= match.time %></h4>
                     <h4><%= match.cellhphone %></h4>
                     <h4><%= match.description %></h4>
-                    
+
+                    <!-- DELETE MATCH AND ACCEPT MATCH LOGIC -->
                     <% if(currentUser && match.caller.id.equals(currentUser._id)){ %>
                         <form id="delete-form" action="/index/<%= match._id %>?_method=DELETE" method="POST">
                             <button class="btn btn-xs btn-danger">Delete</button>
                         </form>
-                        <% }%>
-                <p>
-                   <button>Accept!</button>
-                </p>
+                        <% } else{ %>  
+                            <button>Accept!</button>
+                         <% } %>                        
+       
                 </div>
             <% }); %>
         </div>
