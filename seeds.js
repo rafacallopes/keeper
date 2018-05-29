@@ -32,7 +32,7 @@ function seedDB(){
         console.log("removed matches!");
          //add a few matches
         data.forEach(function(seed){
-            Match.create(seed, function(err, campground){
+            Match.create(seed, function(err, match){
                 if(err){
                     console.log(err)
                 } else {

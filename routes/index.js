@@ -16,7 +16,7 @@ router.get("/", function(req, res){
 });
 
 //CREATE - add new match to DB
-router.post("/", function(req, res){
+router.post("/", isLoggedIn, function(req, res){
     // get data from form and add to matches array
     var adress = req.body.adress;
     var time = req.body.time;
@@ -75,5 +75,12 @@ router.delete("/:id", function(req, res){
     });
  });
  
+ function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect('/login');
+}
+
 
 module.exports = router;

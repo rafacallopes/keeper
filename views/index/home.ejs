@@ -4,11 +4,25 @@
         <title>Keeper</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="/stylesheets/main.css">
+        <script>
+               
+    function notifications() {
+    var x = document.getElementById("show_matches");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+     </script>
     </head>
+    
+    
     <body>
-           <button id="wallet_button"><a href="/profile">Profile</a></button>
+           <button id="profile"><a href="/profile">Profile</a></button>
            <br>
-           <div id="home_menu"><button>Be a Keeper</button>
+           <div id="home_menu">
+            <button onclick="notifications()">Be a Keeper</button>
            <br>
            <button><a href="/index/new">New Match</a></button>
            <br>
@@ -19,7 +33,7 @@
            <button><a href="/logout">Logout</a></button>
            </div>
            
-           <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+           <div id="show_matches">
             <% matches.forEach(function(match){ %>
                 <div class="col-md-3 col-sm-6">
                     <h4><%= match.adress %></h4>
